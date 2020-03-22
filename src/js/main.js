@@ -83,6 +83,16 @@ $(document).ready(function() {
     $('.tariffSlider .slider .slick-prev').fadeIn();
   });
 
+  $("input,textarea,email").focus(function() {
+  $(this).data("placeholder", $(this).attr("placeholder")), $(this).attr("placeholder", "")
+});
+
+$("input,textarea,email").blur(function() {
+  $(this).attr("placeholder", $(this).data("placeholder"))
+});
+
+$('input[type="phone"]').inputmask("+7 (999) 999 99 99");
+
 });
 
 //# sourceMappingURL=main.js.map
