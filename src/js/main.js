@@ -45,43 +45,71 @@ $(document).ready(function() {
       infinite: false,
       centerMode: false,
       centerPadding: '0',
-      cssEase: 'ease-in-out',
-      draggable: false,
+      cssEase: 'linear',
+      draggable: true,
       autoplay: false,
       autoplayspeed: 500,
       slidesToShow: 3,
       slidesToScroll: 2,
       arrows: true,
+      swipe:true,
       prevArrow: '<i class="slick-prev icofont-square-right"></i>',
       nextArrow: '<i class="slick-next icofont-square-left"></i>',
-      dots: false,
-      speed: 1000,
-    })
-    .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-      // then let's do this before changing slides
-      $('.tariffSlider .slider .slick-disabled').each(function() {
-        $(this).fadeIn();
-      });
-      $('.tariffSlider .slider .slick-arrow[aria-disabled="false"]').each(function() {
-        $(this).hide();
-      });
-    })
-    .on('afterChange', function(event, slick, currentSlide, nextSlide) {
-      // finally let's do this after changing slides
+      dots: true,
+      speed: 500,
     });
+    // .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+      // then let's do this before changing slides
+      // $('.tariffSlider .slider .slick-disabled').each(function() {
+        // $(this).fadeIn();
+      // });
+      // $('.tariffSlider .slider .slick-arrow[aria-disabled="false"]').each(function() {
+        // $(this).hide();
+      // });
+    // })
+    // .on('afterChange', function(event, slick, currentSlide, nextSlide) {
+      // finally let's do this after changing slides
+    // });
 
-  $('.tariffSlider .slider .slick-prev').each(function() {
-    $(this).hide();
-  });
-  $('.tariffSlider .slider .slick-prev').click(function() {
-    $(this).hide();
-    $('.tariffSlider .slider .slick-next').fadeIn();
+  // $('.tariffSlider .slider .slick-prev').each(function() {
+  //   $(this).hide();
+  // });
+  // $('.tariffSlider .slider .slick-prev').click(function() {
+  //   $(this).hide();
+  //   $('.tariffSlider .slider .slick-next').fadeIn();
+  // });
+  //
+  // $('.tariffSlider .slider .slick-next').click(function() {
+  //   $(this).hide();
+  //   $('.tariffSlider .slider .slick-prev').fadeIn();
+  // });
+
+  $(".tariffScrolled .scrolledBlock").mCustomScrollbar({
+    theme: "customThm",
+    set_width : "100%" ,
+    axis: "x",
+    mouseWheel: {
+      axis: "x",
+      enable: true
+    },
+    scrollButtons:{
+      enable: true
+    },
+    keyboard:{
+      enable: true
+    },
+    advanced: {
+      updateOnContentResize: true, // <- the solution
+      horizontalScroll : true,
+    },
+    documentTouchScroll: true,
+    // contentTouchScroll: "integer"
   });
 
-  $('.tariffSlider .slider .slick-next').click(function() {
-    $(this).hide();
-    $('.tariffSlider .slider .slick-prev').fadeIn();
+  $(".CamBlock__list").mCustomScrollbar({
+    theme: "CamListThm",
   });
+
 
   $("input,textarea,email").focus(function() {
   $(this).data("placeholder", $(this).attr("placeholder")), $(this).attr("placeholder", "")
