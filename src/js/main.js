@@ -14,8 +14,8 @@ $(document).ready(function() {
       slideToScroll: 1,
       speed: 250,
       arrows: false,
-      prevArrow: '<i class="slick-prev icofont-square-right"></i>',
-      nextArrow: '<i class="slick-next icofont-square-left"></i>',
+      prevArrow: '<i class="slick-prev to-prev"></i>',
+      nextArrow: '<i class="slick-next to-next"></i>',
       dots: true,
       // fade: true,
 
@@ -41,35 +41,53 @@ $(document).ready(function() {
     // console.log(bgSrc)
   });
 
+
+
   $('.tariffSlider .slider').slick({
-      infinite: false,
-      centerMode: false,
-      centerPadding: '0',
-      cssEase: 'linear',
-      draggable: true,
-      autoplay: false,
-      autoplayspeed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 2,
-      arrows: true,
-      swipe:true,
-      prevArrow: '<i class="slick-prev icofont-square-right"></i>',
-      nextArrow: '<i class="slick-next icofont-square-left"></i>',
-      dots: true,
-      speed: 500,
-    });
-    // .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-      // then let's do this before changing slides
-      // $('.tariffSlider .slider .slick-disabled').each(function() {
-        // $(this).fadeIn();
-      // });
-      // $('.tariffSlider .slider .slick-arrow[aria-disabled="false"]').each(function() {
-        // $(this).hide();
-      // });
-    // })
-    // .on('afterChange', function(event, slick, currentSlide, nextSlide) {
-      // finally let's do this after changing slides
-    // });
+    infinite: false,
+    centerMode: false,
+    centerPadding: '0',
+    cssEase: 'linear',
+    draggable: true,
+    autoplay: false,
+    autoplayspeed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    arrows: true,
+    swipe: true,
+    prevArrow: '<i class="slick-prev to-prev"></i>',
+    nextArrow: '<i class="slick-next to-next"></i>',
+    dots: true,
+    speed: 500,
+    responsive: [{
+      breakpoint: 1165,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    }]
+  });
+  // .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+  // then let's do this before changing slides
+  // $('.tariffSlider .slider .slick-disabled').each(function() {
+  // $(this).fadeIn();
+  // });
+  // $('.tariffSlider .slider .slick-arrow[aria-disabled="false"]').each(function() {
+  // $(this).hide();
+  // });
+  // })
+  // .on('afterChange', function(event, slick, currentSlide, nextSlide) {
+  // finally let's do this after changing slides
+  // });
 
   // $('.tariffSlider .slider .slick-prev').each(function() {
   //   $(this).hide();
@@ -86,25 +104,35 @@ $(document).ready(function() {
 
   $(".tariffScrolled .scrolledBlock").mCustomScrollbar({
     theme: "customThm",
-    set_width : "100%" ,
+    set_width: "100%",
     axis: "x",
     mouseWheel: {
       axis: "x",
       enable: true
     },
-    scrollButtons:{
+    scrollButtons: {
       enable: true
     },
-    keyboard:{
+    keyboard: {
       enable: true
     },
     advanced: {
       updateOnContentResize: true, // <- the solution
-      horizontalScroll : true,
+      horizontalScroll: true,
     },
     documentTouchScroll: true,
     // contentTouchScroll: "integer"
   });
+
+  $(".scrollContainer .scrolled").mCustomScrollbar({
+    theme: "customThm",
+  });
+
+  function srolledTop() {
+    $(".scrollContainer .scrolled").mCustomScrollbar("scrollTo", "top", 0);
+  }
+
+
 
   $(".CamBlock__list").mCustomScrollbar({
     theme: "CamListThm",
@@ -112,15 +140,31 @@ $(document).ready(function() {
 
 
   $("input,textarea,email").focus(function() {
-  $(this).data("placeholder", $(this).attr("placeholder")), $(this).attr("placeholder", "")
-});
+    $(this).data("placeholder", $(this).attr("placeholder")), $(this).attr("placeholder", "")
+  });
 
-$("input,textarea,email").blur(function() {
-  $(this).attr("placeholder", $(this).data("placeholder"))
-});
+  $("input,textarea,email").blur(function() {
+    $(this).attr("placeholder", $(this).data("placeholder"))
+  });
 
-$('input[type="phone"]').inputmask("+7 (999) 999 99 99");
+  $('input[type="phone"]').inputmask("+7 (999) 999 99 99");
 
+  $('.burger').click(function() {
+    $(this).toggleClass('active');
+    $('html').toggleClass('block');
+    $('.header__mobileMenu').toggleClass('show');
+    $('.topSlider .slider').slick("slickNext");
+    srolledTop();
+  });
+
+  $('.header__mobileMenu ul li a').click(function() {
+    $(this).next('ul').addClass('show');
+    srolledTop();
+  });
+  $('.back').click(function() {
+    $(this).parent().parent().removeClass('show');
+    srolledTop();
+  });
 });
 
 //# sourceMappingURL=main.js.map
