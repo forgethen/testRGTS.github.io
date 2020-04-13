@@ -102,27 +102,29 @@ $(document).ready(function() {
   //   $('.tariffSlider .slider .slick-prev').fadeIn();
   // });
 
-  $(".tariffScrolled .scrolledBlock").mCustomScrollbar({
-    theme: "customThm",
-    set_width: "100%",
-    axis: "x",
-    mouseWheel: {
-      axis: "x",
-      enable: true
-    },
-    scrollButtons: {
-      enable: true
-    },
-    keyboard: {
-      enable: true
-    },
-    advanced: {
-      updateOnContentResize: true, // <- the solution
-      horizontalScroll: true,
-    },
-    documentTouchScroll: true,
-    // contentTouchScroll: "integer"
-  });
+// TARIFFSCROLLED //
+  $('.tariffScrolled').remove();
+  // $(".tariffScrolled .scrolledBlock").mCustomScrollbar({
+  //   theme: "customThm",
+  //   set_width: "100%",
+  //   axis: "x",
+  //   mouseWheel: {
+  //     axis: "x",
+  //     enable: true
+  //   },
+  //   scrollButtons: {
+  //     enable: true
+  //   },
+  //   keyboard: {
+  //     enable: true
+  //   },
+  //   advanced: {
+  //     updateOnContentResize: true, // <- the solution
+  //     horizontalScroll: true,
+  //   },
+  //   documentTouchScroll: true,
+  //   // contentTouchScroll: "integer"
+  // });
 
   $(".scrollContainer .scrolled").mCustomScrollbar({
     theme: "customThm",
