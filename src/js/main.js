@@ -2,6 +2,10 @@
 
 $(document).ready(function() {
 
+  setTimeout(function () {
+    $('a[data-online="online"]').addClass('online');
+  }, 100);
+
   $('.topSlider .slider').slick({
       infinite: true,
       centerMode: true,
@@ -150,13 +154,25 @@ $(document).ready(function() {
   });
 
   $('input[type="phone"]').inputmask("+7 (999) 999 99 99");
+  $('input[pattern="[0-9]"]').inputmask("9{0,5}");
 
   $('.burger').click(function() {
-    $(this).toggleClass('active');
+    // $(this).toggleClass('active');
+    $(this).hide();
     $('html').toggleClass('block');
     $('.header__mobileMenu').toggleClass('show');
     $('.topSlider .slider').slick("slickNext");
     srolledTop();
+    $('.overlay').show();
+  });
+
+  $('.header__mobileMenu .close').click(function() {
+    $('.burger').fadeIn();
+
+    $('html').toggleClass('block');
+    $('.header__mobileMenu').toggleClass('show');
+    $('.topSlider .slider').slick("slickNext");
+    $('.overlay').fadeOut();
   });
 
   $('.header__mobileMenu ul li a').click(function() {

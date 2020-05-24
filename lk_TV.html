@@ -193,11 +193,6 @@ viewBox="0 0 200.001 200"
 <stop offset="0.7" stop-color="#0093DD"/>
 <stop offset="1" stop-color="#23164D"/>
 </linearGradient>
-<linearGradient id="burclose" x1="-7.78574e-07" y1="72" x2="147.309" y2="264.936" gradientUnits="userSpaceOnUse">
-<stop stop-color="#ec7b05"/>
-<stop offset="0.7" stop-color="#da4005"/>
-<stop offset="1" stop-color="#f10202"/>
-</linearGradient>
 </defs>
 </svg>
 
@@ -326,7 +321,21 @@ viewBox="0 0 200.001 200"
           </nav>
         </div>
       </div>
-      <div class="header__mobileMenu"><a class="logo" href="/"><?xml version="1.0" encoding="UTF-8"?>
+      <div class="header__mobileMenu">
+        <div class="close"><svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M137.765 126.975L73.0248 62.2347C70.0452 59.2551 65.2143 59.2551 62.2347 62.2347C59.2551 65.2143 59.2551 70.0452 62.2347 73.0248L126.975 137.765C129.955 140.745 134.786 140.745 137.765 137.765C140.745 134.786 140.745 129.955 137.765 126.975Z" fill="url(#closed)"/>
+<path d="M126.975 62.2349L62.2347 126.976C59.2551 129.955 59.2551 134.786 62.2347 137.766C65.2143 140.745 70.0452 140.745 73.0248 137.766L137.765 73.0251C140.745 70.0454 140.745 65.2146 137.765 62.2349C134.786 59.2553 129.955 59.2553 126.975 62.2349Z" fill="url(#closed)"/>
+<path d="M191.5 100C191.5 49.4659 150.534 8.5 100 8.5C49.4659 8.5 8.5 49.4659 8.5 100C8.5 150.534 49.4659 191.5 100 191.5C150.534 191.5 191.5 150.534 191.5 100Z" stroke="url(#closed)" stroke-width="17"/>
+<defs>
+<linearGradient id="closed" x1="-36.8995" y1="122.907" x2="203.69" y2="155.17" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EC7B05"/>
+<stop offset="0.7" stop-color="#DA4005"/>
+<stop offset="1" stop-color="#F10202"/>
+</linearGradient>
+</defs>
+</svg>
+
+        </div><a class="logo" href="/"><?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW -->
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="200px" height="200px" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
@@ -665,14 +674,12 @@ viewBox="0 0 200.001 200"
                   <p>Сообщить<br>о&nbsp;неисправности</p></a></li>
             </ul>
           </div>
-          <ul>
-            <li>
-              <p>Техническая поддержка:</p><a href="tel:+78345161313">
-                <p>8 (83451) 6-13-13</p></a><a href="tel:+78345124165">
-                <p>8 (83451) 2-41-65</p></a>
-            </li>
-          </ul>
         </div>
+        <ul class="bottom">
+          <li>
+            <p>Техническая поддержка:</p><a href="tel:+78345161313">8 (83451) 6-13-13</a><a href="tel:+78345124165">8 (83451) 2-41-65</a>
+          </li>
+        </ul>
       </div>
     </header>
     <div class="AllContent">
@@ -683,7 +690,7 @@ viewBox="0 0 200.001 200"
             <div class="wrap">
               <label>
                 <p>Номер договора</p>
-                <input type="text" value="12345">
+                <input type="text" value="12345" pattern="[0-9]">
               </label>
             </div>
             <div class="wrap">
